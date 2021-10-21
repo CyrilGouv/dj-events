@@ -1,5 +1,10 @@
-import styles from '../styles/Home.module.css'
+import Layout from '../components/Layout'
 
 export default function HomePage() {
-    return <div>HELLO</div>
+    return (
+        <Layout>
+
+            <h1>Home</h1>
+        </Layout>
+    )
 }
