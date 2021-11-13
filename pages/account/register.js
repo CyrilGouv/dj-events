@@ -1,5 +1,6 @@
 import { FaUser } from 'react-icons/fa'
 import { useState, useEffect, useContext } from "react"
+import AuthContext from '@/context/AuthContext'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Link from 'next/link'
@@ -13,6 +14,7 @@ export default function RegisterPage() {
     const [ password, setPassword ] = useState('')
     const [ passwordConfirm, setPasswordConfirm ] = useState('')
 
+    const { register, error } = useContext(AuthContext)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -22,7 +24,7 @@ export default function RegisterPage() {
             return
         }
 
-        console.log({ username, email, password });
+        register({ username, email, password })
     }
 
     return (
